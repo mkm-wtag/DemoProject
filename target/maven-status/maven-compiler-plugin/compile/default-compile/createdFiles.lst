@@ -1,0 +1,4 @@
+cinema/entity/User.class
+cinema/config/AppInitializer.class
+cinema/config/WebMvcConfig.class
+cinema/config/AppContext.class
