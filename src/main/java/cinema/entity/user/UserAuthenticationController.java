@@ -20,15 +20,15 @@ public class UserAuthenticationController {
     }
 
     @PostMapping
-    public ResponseObject userLogin(@Valid @RequestBody LoginDTO loginDTO, BindingResult bindingResult, HttpSession session){
-        if (bindingResult.hasErrors()){
+    public ResponseObject userLogin(@Valid @RequestBody LoginDTO loginDTO, BindingResult bindingResult, HttpSession session) {
+        if (bindingResult.hasErrors()) {
             throw new InvalidRequestBodyException(bindingResult);
         }
-        return userService.getLoggedIn(loginDTO,session);
+        return userService.getLoggedIn(loginDTO, session);
     }
 
     @DeleteMapping
-    public ResponseObject userLogOut(HttpSession session){
+    public ResponseObject userLogOut(HttpSession session) {
         return userService.logout(session);
     }
 

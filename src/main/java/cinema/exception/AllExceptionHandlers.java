@@ -11,7 +11,7 @@ public class AllExceptionHandlers {
 
 
     @ExceptionHandler(InvalidRequestBodyException.class)
-    public ResponseEntity<ErrorMessage> handleInvalidRequestBodyException(InvalidRequestBodyException exception){
+    public ResponseEntity<ErrorMessage> handleInvalidRequestBodyException(InvalidRequestBodyException exception) {
         ErrorMessage errorMessage = new ErrorMessage();
         errorMessage.setMessage(exception.getBindingResult().getFieldError().getField() + " "
                 + exception.getBindingResult().getFieldError().getDefaultMessage());
@@ -20,7 +20,7 @@ public class AllExceptionHandlers {
 
 
     @ExceptionHandler(DataIntegrityViolationException.class)
-    public ResponseEntity<ErrorMessage> handleDataIntegrityViolationException(DataIntegrityViolationException exception){
+    public ResponseEntity<ErrorMessage> handleDataIntegrityViolationException(DataIntegrityViolationException exception) {
 
         ErrorMessage errorMessage = new ErrorMessage();
         errorMessage.setMessage("User with given email already exists");
@@ -30,22 +30,22 @@ public class AllExceptionHandlers {
 
 
     @ExceptionHandler(CustomerLoginException.class)
-    public ResponseEntity<ErrorMessage> handleCustomerLoginException(CustomerLoginException exception){
+    public ResponseEntity<ErrorMessage> handleCustomerLoginException(CustomerLoginException exception) {
         return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(exception.getErrorMessage());
     }
 
     @ExceptionHandler(CustomerLogoutException.class)
-    public ResponseEntity<ErrorMessage> handleCustomerLogoutException(CustomerLogoutException exception){
+    public ResponseEntity<ErrorMessage> handleCustomerLogoutException(CustomerLogoutException exception) {
         return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(exception.getErrorMessage());
     }
 
     @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<ErrorMessage> handleResourceNotFoundException(ResourceNotFoundException exception){
+    public ResponseEntity<ErrorMessage> handleResourceNotFoundException(ResourceNotFoundException exception) {
         return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(exception.getErrorMessage());
     }
 
     @ExceptionHandler(AccessDeniedException.class)
-    public ResponseEntity<ErrorMessage> handleAccessDeniedException(AccessDeniedException exception){
+    public ResponseEntity<ErrorMessage> handleAccessDeniedException(AccessDeniedException exception) {
         return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(exception.getErrorMessage());
     }
 

@@ -1,6 +1,5 @@
 package cinema.entity.seat;
 
-import cinema.entity.user.UserDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -8,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class SeatServiceImpl implements SeatService{
+public class SeatServiceImpl implements SeatService {
 
     private final SeatsDAO seatsDAO;
 

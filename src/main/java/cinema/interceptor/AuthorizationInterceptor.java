@@ -16,12 +16,12 @@ public class AuthorizationInterceptor implements HandlerInterceptor {
 
         HttpSession session = request.getSession();
 
-        if (! AuthorizationUtility.isCustomerLoggedIn(session)){
+        if (!AuthorizationUtility.isCustomerLoggedIn(session)) {
             ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
             return false;
         }
 
-        if (! AuthorizationUtility.isCustomerAuthorized(request.getParameter("email"), session)){
+        if (!AuthorizationUtility.isCustomerAuthorized(request.getParameter("email"), session)) {
             ResponseEntity.status(HttpStatus.FORBIDDEN).build();
             return false;
         }

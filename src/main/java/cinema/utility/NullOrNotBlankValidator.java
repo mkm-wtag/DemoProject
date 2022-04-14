@@ -6,7 +6,8 @@ import javax.validation.ConstraintValidatorContext;
 public class NullOrNotBlankValidator implements ConstraintValidator<NullOrNotBlank, String> {
 
     @Override
-    public void initialize(NullOrNotBlank nullOrNotBlank) {}
+    public void initialize(NullOrNotBlank nullOrNotBlank) {
+    }
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext constraintValidatorContext) {

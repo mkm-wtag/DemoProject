@@ -1,6 +1,6 @@
 package cinema.exception;
 
-public class CustomerLoginException extends RuntimeException{
+public class CustomerLoginException extends RuntimeException {
 
     private ErrorMessage errorMessage;
 

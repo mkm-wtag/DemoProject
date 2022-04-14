@@ -9,11 +9,18 @@ import java.util.List;
 
 public interface UserService {
     List<User> getUsers();
+
     User getUser(String userId);
+
     void saveUser(User user);
+
     ResponseObject deleteUser(String userId, HttpSession session);
+
     User updateUser(String userId, EditUserDTO editUserDTO, HttpSession session);
+
     User getUserByEmail(String email);
-    ResponseObject getLoggedIn(@Valid @RequestBody LoginDTO login,HttpSession session);
+
+    ResponseObject getLoggedIn(@Valid @RequestBody LoginDTO login, HttpSession session);
+
     ResponseObject logout(HttpSession session);
 }

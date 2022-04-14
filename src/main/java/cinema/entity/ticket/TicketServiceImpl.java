@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Service
-public class TicketServiceImpl implements TicketService{
+public class TicketServiceImpl implements TicketService {
     private final TicketDAO ticketDAO;
     private final UserDAO userDAO;
     private final SeatService seatService;
@@ -38,13 +38,13 @@ public class TicketServiceImpl implements TicketService{
     @Override
     @Transactional
     public Ticket getTicket(String userId, String ticketId) {
-        return ticketDAO.getTicket(userId,ticketId);
+        return ticketDAO.getTicket(userId, ticketId);
     }
 
     @Override
     @Transactional
     public Ticket createTicket(String userId, Ticket ticket, HttpSession session) {
-        if (! AuthorizationUtility.isCustomerLoggedIn(session)){
+        if (!AuthorizationUtility.isCustomerLoggedIn(session)) {
             throw new CustomerLoginException("You are not logged in");
         }
         User oldUser = userDAO.getByUserId(userId);
@@ -54,9 +54,8 @@ public class TicketServiceImpl implements TicketService{
         if (!AuthorizationUtility.isCustomerAuthorized(oldUser.getUserEmail(), session)) {
             throw new AccessDeniedException("You are not supposed to do this.");
         }
-        Ticket bookedTicket=ticketDAO.createTicket(userId, ticket);
 
-        return bookedTicket;
+        return ticketDAO.createTicket(userId, ticket);
     }
 
     @Override
@@ -68,7 +67,7 @@ public class TicketServiceImpl implements TicketService{
     @Override
     @Transactional
     public ResponseObject deleteTicket(String userId, String ticketId, HttpSession session) {
-        if (! AuthorizationUtility.isCustomerLoggedIn(session)){
+        if (!AuthorizationUtility.isCustomerLoggedIn(session)) {
             throw new CustomerLoginException("You are not logged in");
         }
         User oldUser = userDAO.getByUserId(userId);
@@ -85,14 +84,14 @@ public class TicketServiceImpl implements TicketService{
     @Override
     @Transactional
     public List<Seat> viewAllSeats() {
-        List<Seat> seatList=ticketDAO.viewAllSeats();
-        if(seatList.size()==0){
+        List<Seat> seatList = ticketDAO.viewAllSeats();
+        if (seatList.size() == 0) {
             for (int i = 0; i < 50; i++) {
                 Seat seat = new Seat();
                 seat.setBooked(false);
                 seatService.create(seat);
             }
-            seatList=ticketDAO.viewAllSeats();
+            seatList = ticketDAO.viewAllSeats();
         }
         return seatList;
     }

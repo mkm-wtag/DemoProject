@@ -70,11 +70,9 @@ public class TicketDAOImpl implements TicketDAO {
         Seat seat = seatsDAO.getSeatById(seatFromTicket);
         if (seat != null && !seat.isBooked()) {
             seat.setBooked(true);
-        }
-        else if (seat==null){
+        } else if (seat == null) {
             throw new ResourceNotFoundException("No seat found with seatId : " + seatFromTicket);
-        }
-        else{
+        } else {
             throw new AccessDeniedException("The ticket is already booked by someone else.");
         }
         user.getTickets().add(ticket);

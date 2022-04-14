@@ -47,7 +47,7 @@ public class UserController {
         return ResponseEntity.ok().body(user);
     }
 
-    @PutMapping("{userid}")
+    @PatchMapping("{userid}")
     public User updateUser(@PathVariable("userid") String userId, @Valid @RequestBody EditUserDTO editUserDTO, BindingResult bindingResult, HttpSession session) {
         if (bindingResult.hasErrors()) {
             throw new InvalidRequestBodyException(bindingResult);

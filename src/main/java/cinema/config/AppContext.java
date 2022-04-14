@@ -20,8 +20,12 @@ import java.util.Properties;
 @ComponentScan("cinema")
 public class AppContext {
 
+    private final Environment environment;
+
     @Autowired
-    private Environment environment;
+    public AppContext(Environment environment) {
+        this.environment = environment;
+    }
 
     @Bean
     public LocalSessionFactoryBean sessionFactory() {

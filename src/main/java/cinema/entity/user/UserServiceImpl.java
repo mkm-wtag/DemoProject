@@ -99,6 +99,7 @@ public class UserServiceImpl implements UserService {
         }
         return user;
     }
+
     @Override
     @Transactional
     public ResponseObject getLoggedIn(LoginDTO login, HttpSession session) {

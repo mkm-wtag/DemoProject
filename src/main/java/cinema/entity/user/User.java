@@ -33,7 +33,7 @@ public class User implements Serializable {
     private String userPassword;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<Ticket> tickets=new ArrayList<>();
+    private List<Ticket> tickets = new ArrayList<>();
 
     public List<Ticket> getTickets() {
         return tickets;

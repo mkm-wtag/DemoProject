@@ -2,7 +2,7 @@ package cinema.exception;
 
 import org.springframework.validation.BindingResult;
 
-public class InvalidRequestBodyException extends RuntimeException{
+public class InvalidRequestBodyException extends RuntimeException {
 
     private BindingResult bindingResult;
 

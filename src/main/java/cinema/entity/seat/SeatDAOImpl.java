@@ -12,8 +12,9 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 @Repository
-public class SeatDAOImpl implements SeatsDAO{
+public class SeatDAOImpl implements SeatsDAO {
     private final SessionFactory sessionFactory;
+
     @Autowired
 
     public SeatDAOImpl(SessionFactory sessionFactory) {
@@ -22,7 +23,7 @@ public class SeatDAOImpl implements SeatsDAO{
 
     @Override
     public void create(Seat seat) {
-        Session session= sessionFactory.getCurrentSession();
+        Session session = sessionFactory.getCurrentSession();
         session.save(seat);
     }
 
@@ -40,7 +41,7 @@ public class SeatDAOImpl implements SeatsDAO{
 
     @Override
     public void update(Seat seat) {
-        Session session=sessionFactory.getCurrentSession();
+        Session session = sessionFactory.getCurrentSession();
         session.update(seat);
     }
 
