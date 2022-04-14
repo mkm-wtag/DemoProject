@@ -1,6 +1,6 @@
 package cinema.utility;
 
-import cinema.user.User;
+import cinema.entity.user.User;
 
 import javax.servlet.http.HttpSession;
 

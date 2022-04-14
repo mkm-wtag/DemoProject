@@ -11,6 +11,7 @@ public class MyGenerator implements IdentifierGenerator {
     @Override
     public Serializable generate(SharedSessionContractImplementor sharedSessionContractImplementor, Object o) throws HibernateException {
         long millis=System.currentTimeMillis();
+
         return Long.toString(millis);
     }
 }
